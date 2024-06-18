@@ -1,0 +1,32 @@
+<h2>Poeple List</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Happy Birthday</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% people.forEach(person=> { %>
+    <tr>
+      <td>
+        <%= person.name %>
+      </td>
+      <td>
+        <%= person.lastname %>
+      </td>
+      <td>
+        <%= new Date(person.birthday).toISOString().split('T')[0] %>
+      </td>
+      <td>
+        <a class="btn btn-primary" href="/people/edit/<%= person.id %>">Edit</a>
+        <form action="/people/delete/<%= person.id %>" method="post" style="display:inline;">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<h2>Edit Person</h2>
+<form action="/people/edit/<%= person.id %>" method="post" autocomplete="off">
+  <div class="mb-3">
+    <label class="form-label">Name:</label>
+    <input class="form-control" type="text" name="name" value="<%= person.name %>" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Lastname:</label>
+    <input class="form-control" type="text" name="lastname" value="<%= person.lastname %>" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Birthday:</label>
+    <input class="form-control" type="date" name="birthday" value="<%= new Date(person.birthday).toISOString().split('T')[0] %>" required>
+  </div>
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
